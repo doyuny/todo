@@ -7,6 +7,34 @@
 
 import UIKit
 
+class TodoCell: UITableViewCell {
+    var toggleSwitch: UISwitch = {
+        let toggle = UISwitch()
+        toggle.translatesAutoresizingMaskIntoConstraints = false
+        return toggle
+    }()
+
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupSwitch()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupSwitch()
+    }
+
+    private func setupSwitch() {
+        contentView.addSubview(toggleSwitch)
+
+        NSLayoutConstraint.activate([
+            toggleSwitch.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            toggleSwitch.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        ])
+    }
+}
+
 class clicktodo: UIViewController, UITableViewDataSource {
     @IBAction func addclick(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "할일추가", message: "\n", preferredStyle: .alert)
@@ -114,9 +142,23 @@ class clicktodo: UIViewController, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: .none)
-        cell.textLabel?.text = self.data[indexPath.section][indexPath.row]
-        return cell
+        let cellIdentifier = "TodoCell"
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? TodoCell
+        if cell == nil {
+            cell = TodoCell(style: .default, reuseIdentifier: cellIdentifier)
+        }
+
+        cell?.textLabel?.text = self.data[indexPath.section][indexPath.row]
+        cell?.toggleSwitch.addTarget(self, action: #selector(switchValueChanged(_:)), for: .valueChanged)
+        cell?.toggleSwitch.tag = indexPath.row + (indexPath.section * 100) 
+        return cell!
+    }
+
+    @objc func switchValueChanged(_ sender: UISwitch) {
+        let sectionIndex = sender.tag / 100
+        let rowIndex = sender.tag % 100
+        // Perform the required action based on the switch value or the cell's index (sectionIndex, rowIndex)
+        // For example, you can update the data array or perform any other operation here.
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
