@@ -22,7 +22,6 @@ class clicktodo: UIViewController, UITableViewDataSource {
             if let newTodo = textField?.text, !newTodo.isEmpty {
                 self.data[self.selectedSectionIndex].append(newTodo)
 
-                // Save data to UserDefaults
                 UserDefaults.standard.set(self.data, forKey: "ToDoData")
 
                 self.tableView.reloadData()
@@ -44,109 +43,112 @@ class clicktodo: UIViewController, UITableViewDataSource {
     var selectedSectionIndex = 0
 
     @IBAction func deleteclick(_ sender: Any) {
-        let alert = UIAlertController(title: "삭제할 수 있는 항목", message: "삭제할 todo를 골라주세요", preferredStyle: .alert)
+        let nonEmptySectionsCount = self.data.filter { !$0.isEmpty }.count
+        if nonEmptySectionsCount == 1 && self.data[0].count == 1 {
+            if let item = self.data[0].first {
+                self.showDeleteConfirmationAlert(for: item, at: IndexPath(row: 0, section: 0))
+            }
+        } else {
+            let alert = UIAlertController(title: "삭제할 수 있는 항목", message: "삭제할 todo를 골라주세요", preferredStyle: .alert)
 
-                // Add a list of items from all sections to the alert as actions
-                for sectionIndex in 0..<self.data.count {
-                    let sectionData = self.data[sectionIndex]
-                    for (index, item) in sectionData.enumerated() {
-                        let action = UIAlertAction(title: item, style: .default) { _ in
-                            self.showDeleteConfirmationAlert(for: item, at: IndexPath(row: index, section: sectionIndex))
-                        }
-                        alert.addAction(action)
+            for sectionIndex in 0 ..< self.data.count {
+                let sectionData = self.data[sectionIndex]
+                for (index, item) in sectionData.enumerated() {
+                    let action = UIAlertAction(title: item, style: .default) { _ in
+                        self.showDeleteConfirmationAlert(for: item, at: IndexPath(row: index, section: sectionIndex))
                     }
-                }
-
-                let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-                alert.addAction(cancel)
-
-                self.present(alert, animated: true, completion: nil)
-            }
-
-            func showDeleteConfirmationAlert(for item: String, at indexPath: IndexPath) {
-                let confirmationAlert = UIAlertController(title: "삭제확인", message: "'\(item)'을(를) \n 정말로 삭제하시겠습니까?", preferredStyle: .alert)
-
-                let yesAction = UIAlertAction(title: "네", style: .destructive) { _ in
-                    // Remove the selected item from the data array
-                    self.data[indexPath.section].remove(at: indexPath.row)
-
-                    // Save updated data to UserDefaults
-                    UserDefaults.standard.set(self.data, forKey: "ToDoData")
-
-                    // Reload the table view to reflect the changes
-                    self.tableView.reloadData()
-                }
-
-                let noAction = UIAlertAction(title: "아니요", style: .cancel, handler: nil)
-
-                confirmationAlert.addAction(yesAction)
-                confirmationAlert.addAction(noAction)
-
-                self.present(confirmationAlert, animated: true, completion: nil)
-            }
-
-            override func viewDidLoad() {
-                super.viewDidLoad()
-
-                self.view.backgroundColor = .white
-                self.view.addSubview(self.tableView)
-                self.tableView.dataSource = self
-
-                self.tableView.translatesAutoresizingMaskIntoConstraints = false
-                NSLayoutConstraint.activate([
-                    self.tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-                    self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
-                    self.tableView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
-                    self.tableView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor)
-                ])
-                configPickerView(for: self.readTF) // Pass the readTF UITextField to the configPickerView method
-
-                // Load saved data from UserDefaults
-                if let savedData = UserDefaults.standard.array(forKey: "ToDoData") as? [[String]] {
-                    self.data = savedData
+                    alert.addAction(action)
                 }
             }
 
-            func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-                return self.data[section].count
-            }
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(cancel)
 
-            func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                let cell = UITableViewCell(style: .default, reuseIdentifier: .none)
-                cell.textLabel?.text = self.data[indexPath.section][indexPath.row]
-                return cell
-            }
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 
-            func numberOfSections(in tableView: UITableView) -> Int {
-                return self.data.count
-            }
+    func showDeleteConfirmationAlert(for item: String, at indexPath: IndexPath) {
+        let confirmationAlert = UIAlertController(title: "삭제확인", message: "'\(item)'을(를) \n 정말로 삭제하시겠습니까?", preferredStyle: .alert)
 
-            func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-                return self.header[section]
-            }
+        let yesAction = UIAlertAction(title: "OK", style: .destructive) { _ in
+
+            self.data[indexPath.section].remove(at: indexPath.row)
+
+            UserDefaults.standard.set(self.data, forKey: "ToDoData")
+
+            self.tableView.reloadData()
         }
 
-        extension clicktodo: UIPickerViewDelegate, UIPickerViewDataSource {
-            func configPickerView(for textField: UITextField) {
-                let picker = UIPickerView()
-                picker.delegate = self
-                picker.dataSource = self
-                textField.inputView = picker
-            }
+        let noAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
 
-            func numberOfComponents(in pickerView: UIPickerView) -> Int {
-                return 1
-            }
+        confirmationAlert.addAction(yesAction)
+        confirmationAlert.addAction(noAction)
 
-            func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-                return self.header.count
-            }
+        self.present(confirmationAlert, animated: true, completion: nil)
+    }
 
-            func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-                return self.header[row]
-            }
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
-            func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-                self.selectedSectionIndex = row
-            }
+        self.view.backgroundColor = .white
+        self.view.addSubview(self.tableView)
+        self.tableView.dataSource = self
+
+        self.tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
+            self.tableView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+            self.tableView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor)
+        ])
+        configPickerView(for: self.readTF)
+
+        if let savedData = UserDefaults.standard.array(forKey: "ToDoData") as? [[String]] {
+            self.data = savedData
         }
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.data[section].count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: .none)
+        cell.textLabel?.text = self.data[indexPath.section][indexPath.row]
+        return cell
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.data.count
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.header[section]
+    }
+}
+
+extension clicktodo: UIPickerViewDelegate, UIPickerViewDataSource {
+    func configPickerView(for textField: UITextField) {
+        let picker = UIPickerView()
+        picker.delegate = self
+        picker.dataSource = self
+        textField.inputView = picker
+    }
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.header.count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return self.header[row]
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.selectedSectionIndex = row
+    }
+}

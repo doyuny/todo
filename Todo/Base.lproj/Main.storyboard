@@ -70,12 +70,12 @@
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="trash.fill" catalog="system" id="mx7-dm-u5d">
                                 <connections>
-                                    <action selector="deleteclick:" destination="lfK-eA-1Iv" id="m6q-ml-hMx"/>
+                                    <action selector="deleteclick:" destination="lfK-eA-1Iv" id="aHk-xg-3J2"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="square.and.pencil" catalog="system" id="tDq-Q1-qXu">
                                 <connections>
-                                    <action selector="addclick:" destination="lfK-eA-1Iv" id="djE-9a-KPi"/>
+                                    <action selector="addclick:" destination="lfK-eA-1Iv" id="vAe-0d-to5"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
