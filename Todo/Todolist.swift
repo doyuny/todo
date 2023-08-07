@@ -202,7 +202,7 @@ class clicktodo: UIViewController, UITableViewDataSource {
         
         // save the completed tasks data to UserDefaults
         UserDefaults.standard.set(onTasks, forKey: "CompletedTasksData")
-        completeVC.completedTasks = onTasks
+        //completeVC.completedTasks = onTasks
         if self.navigationController == nil {
             print("clicktodo is not embedded in a UINavigationController.")
         }
