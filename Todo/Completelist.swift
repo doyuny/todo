@@ -4,46 +4,46 @@
 //
 //  Created by 김도윤 on 2023/08/01.
 //
-
 import UIKit
 
-class clickclear: UIViewController, UITableViewDataSource {
-    var tableView = UITableView(frame: .zero, style: .insetGrouped)
-    let header = ["Section1", "Section2", "Section3"]
-    let data = [["Test 1-1", "Test 1-2"], ["Test 2-1", "Test 2-2"], ["Test 3-1", "Test 3-2"]]
-
+class CompletelistViewController: UITableViewController {
+    
+    var completedTasks: [[String]] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-
-        self.view.backgroundColor = .white
-        self.view.addSubview(self.tableView)
-        self.tableView.dataSource = self
-
-        self.tableView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            self.tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
-            self.tableView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
-            self.tableView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor)
-        ])
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "completedTaskCell")
+        NotificationCenter.default.addObserver(self, selector: #selector(handleCompletedTasksChanged(_:)), name: NSNotification.Name("CompletedTasksChanged"), object: nil)
     }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.data[section].count
+    
+    @objc func handleCompletedTasksChanged(_ notification: NSNotification) {
+        // fetch the completed tasks data and reload the table view
+        if let completedData = UserDefaults.standard.array(forKey: "CompletedTasksData") as? [[String]] {
+            self.completedTasks = completedData
+        }
+        self.tableView.reloadData()
     }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: .none)
-        cell.textLabel?.text = self.data[indexPath.section][indexPath.row]
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return completedTasks.count
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return completedTasks[section].count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "completedTaskCell", for: indexPath)
+        cell.textLabel?.text = completedTasks[indexPath.section][indexPath.row]
         return cell
     }
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return self.data.count
-    }
-
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.header[section]
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Section \(section + 1)"
     }
 }

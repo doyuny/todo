@@ -68,14 +68,19 @@
                     </view>
                     <navigationItem key="navigationItem" title="Todolist" id="XQG-7L-jND">
                         <rightBarButtonItems>
+                            <barButtonItem title="Item" id="L61-0d-Qox">
+                                <connections>
+                                    <action selector="navigateToCompletedTasks:" destination="lfK-eA-1Iv" id="c2W-Aj-qnf"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="Item" image="trash.fill" catalog="system" id="mx7-dm-u5d">
                                 <connections>
-                                    <action selector="deleteclick:" destination="lfK-eA-1Iv" id="aHk-xg-3J2"/>
+                                    <action selector="deleteclick:" destination="lfK-eA-1Iv" id="GgX-eT-plg"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="square.and.pencil" catalog="system" id="tDq-Q1-qXu">
                                 <connections>
-                                    <action selector="addclick:" destination="lfK-eA-1Iv" id="vAe-0d-to5"/>
+                                    <action selector="addclick:" destination="lfK-eA-1Iv" id="PQ8-Il-8Kh"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -83,12 +88,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="szH-9X-RXK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1797.709923664122" y="-310.56338028169017"/>
+            <point key="canvasLocation" x="1798" y="-387"/>
         </scene>
         <!--Complete list-->
         <scene sceneID="Ps4-ur-ITO">
             <objects>
-                <viewController storyboardIdentifier="clickclear" id="648-pE-k8o" customClass="clickclear" customModule="Todo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CompletelistViewController" id="648-pE-k8o" customClass="CompletelistViewController" customModule="Todo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WCo-g5-Zv4">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
