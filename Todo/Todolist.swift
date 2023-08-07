@@ -179,6 +179,17 @@ class clicktodo: UIViewController, UITableViewDataSource {
         switchStates[section][row] = sender.isOn
         
         UserDefaults.standard.set(switchStates, forKey: "SwitchStates")
+        var onTasks: [[String]] = Array(repeating: [], count: data.count)
+        for sec in 0..<data.count {
+            for index in 0..<data[sec].count {
+                if switchStates[sec][index] {
+                    onTasks[sec].append(data[sec][index])
+                }
+            }
+        }
+        UserDefaults.standard.set(onTasks, forKey: "CompletedTasksData")
+        NotificationCenter.default.post(name: NSNotification.Name("CompletedTasksChanged"), object: nil)
+    
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
