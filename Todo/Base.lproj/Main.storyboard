@@ -65,7 +65,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TH6-3V-Y3w">
-                                <rect key="frame" x="372" y="750" width="5" height="28"/>
+                                <rect key="frame" x="335" y="774" width="5" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
@@ -106,9 +106,7 @@
                         <viewLayoutGuide key="safeArea" id="Fyo-FT-4IT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Complete list" id="q4Z-PR-oy6">
-                        <barButtonItem key="rightBarButtonItem" image="trash.fill" catalog="system" id="Yo3-DZ-74T"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Complete list" id="q4Z-PR-oy6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="81Y-EO-j5z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -137,7 +135,7 @@
     <resources>
         <image name="square.and.pencil" catalog="system" width="128" height="113"/>
         <image name="trash.fill" catalog="system" width="119" height="128"/>
-        <image name="다운로드 1" width="206" height="105"/>
+        <image name="다운로드 1" width="103" height="52.5"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
