@@ -15,6 +15,7 @@
 		07B7BBB92A77FD1900EE1FA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B7BBB72A77FD1900EE1FA8 /* LaunchScreen.storyboard */; };
 		07B7BBE12A78C4F900EE1FA8 /* Todolist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7BBE02A78C4F900EE1FA8 /* Todolist.swift */; };
 		07B7BBE32A78C5AB00EE1FA8 /* Completelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7BBE22A78C5AB00EE1FA8 /* Completelist.swift */; };
+		07FC1E932A81CF28007770B9 /* TodoCellSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC1E922A81CF28007770B9 /* TodoCellSwitch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		07B7BBBA2A77FD1900EE1FA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07B7BBE02A78C4F900EE1FA8 /* Todolist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todolist.swift; sourceTree = "<group>"; };
 		07B7BBE22A78C5AB00EE1FA8 /* Completelist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Completelist.swift; sourceTree = "<group>"; };
+		07FC1E922A81CF28007770B9 /* TodoCellSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCellSwitch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				07B7BBB02A77FD1700EE1FA8 /* ViewController.swift */,
 				07B7BBE02A78C4F900EE1FA8 /* Todolist.swift */,
 				07B7BBE22A78C5AB00EE1FA8 /* Completelist.swift */,
+				07FC1E922A81CF28007770B9 /* TodoCellSwitch.swift */,
 				07B7BBB22A77FD1700EE1FA8 /* Main.storyboard */,
 				07B7BBB52A77FD1900EE1FA8 /* Assets.xcassets */,
 				07B7BBB72A77FD1900EE1FA8 /* LaunchScreen.storyboard */,
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07B7BBE32A78C5AB00EE1FA8 /* Completelist.swift in Sources */,
+				07FC1E932A81CF28007770B9 /* TodoCellSwitch.swift in Sources */,
 				07B7BBB12A77FD1700EE1FA8 /* ViewController.swift in Sources */,
 				07B7BBE12A78C4F900EE1FA8 /* Todolist.swift in Sources */,
 				07B7BBAD2A77FD1700EE1FA8 /* AppDelegate.swift in Sources */,
