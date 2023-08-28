@@ -15,6 +15,8 @@
 		07B7BBB92A77FD1900EE1FA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B7BBB72A77FD1900EE1FA8 /* LaunchScreen.storyboard */; };
 		07B7BBE12A78C4F900EE1FA8 /* Todolist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7BBE02A78C4F900EE1FA8 /* Todolist.swift */; };
 		07B7BBE32A78C5AB00EE1FA8 /* Completelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7BBE22A78C5AB00EE1FA8 /* Completelist.swift */; };
+		07BB9B672A9C241A001F4ADC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 07BB9B662A9C241A001F4ADC /* Alamofire */; };
+		07BB9B692A9C2AA4001F4ADC /* CatDogImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BB9B682A9C2AA4001F4ADC /* CatDogImage.swift */; };
 		07FC1E932A81CF28007770B9 /* TodoCellSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC1E922A81CF28007770B9 /* TodoCellSwitch.swift */; };
 		07FC1E952A81D43F007770B9 /* ClickTodoAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FC1E942A81D43F007770B9 /* ClickTodoAction.swift */; };
 /* End PBXBuildFile section */
@@ -30,6 +32,7 @@
 		07B7BBBA2A77FD1900EE1FA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07B7BBE02A78C4F900EE1FA8 /* Todolist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todolist.swift; sourceTree = "<group>"; };
 		07B7BBE22A78C5AB00EE1FA8 /* Completelist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Completelist.swift; sourceTree = "<group>"; };
+		07BB9B682A9C2AA4001F4ADC /* CatDogImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatDogImage.swift; sourceTree = "<group>"; };
 		07FC1E922A81CF28007770B9 /* TodoCellSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCellSwitch.swift; sourceTree = "<group>"; };
 		07FC1E942A81D43F007770B9 /* ClickTodoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickTodoAction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -39,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07BB9B672A9C241A001F4ADC /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +79,7 @@
 				07B7BBB52A77FD1900EE1FA8 /* Assets.xcassets */,
 				07B7BBB72A77FD1900EE1FA8 /* LaunchScreen.storyboard */,
 				07B7BBBA2A77FD1900EE1FA8 /* Info.plist */,
+				07BB9B682A9C2AA4001F4ADC /* CatDogImage.swift */,
 			);
 			path = Todo;
 			sourceTree = "<group>";
@@ -95,6 +100,9 @@
 			dependencies = (
 			);
 			name = Todo;
+			packageProductDependencies = (
+				07BB9B662A9C241A001F4ADC /* Alamofire */,
+			);
 			productName = Todo;
 			productReference = 07B7BBA92A77FD1700EE1FA8 /* Todo.app */;
 			productType = "com.apple.product-type.application";
@@ -123,6 +131,9 @@
 				Base,
 			);
 			mainGroup = 07B7BBA02A77FD1700EE1FA8;
+			packageReferences = (
+				07BB9B652A9C241A001F4ADC /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 07B7BBAA2A77FD1700EE1FA8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -155,6 +166,7 @@
 				07FC1E952A81D43F007770B9 /* ClickTodoAction.swift in Sources */,
 				07B7BBB12A77FD1700EE1FA8 /* ViewController.swift in Sources */,
 				07B7BBE12A78C4F900EE1FA8 /* Todolist.swift in Sources */,
+				07BB9B692A9C2AA4001F4ADC /* CatDogImage.swift in Sources */,
 				07B7BBAD2A77FD1700EE1FA8 /* AppDelegate.swift in Sources */,
 				07B7BBAF2A77FD1700EE1FA8 /* SceneDelegate.swift in Sources */,
 			);
@@ -303,6 +315,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 74ZM562D2S;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Todo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -310,6 +323,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,6 +344,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 74ZM562D2S;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Todo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -337,6 +352,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -372,6 +388,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		07BB9B652A9C241A001F4ADC /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		07BB9B662A9C241A001F4ADC /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07BB9B652A9C241A001F4ADC /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 07B7BBA12A77FD1700EE1FA8 /* Project object */;
 }
