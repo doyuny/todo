@@ -53,7 +53,6 @@
 			isa = PBXGroup;
 			children = (
 				07B7BBAB2A77FD1700EE1FA8 /* Todo */,
-				07B7BBBA2A77FD1900EE1FA8 /* Info.plist */,
 				07BB9B6C2A9EC549001F4ADC /* Controller */,
 				07BB9B6B2A9EC542001F4ADC /* View */,
 				07BB9B6A2A9EC530001F4ADC /* Model */,
@@ -73,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				07B7BBAC2A77FD1700EE1FA8 /* AppDelegate.swift */,
+				07B7BBBA2A77FD1900EE1FA8 /* Info.plist */,
 				07B7BBAE2A77FD1700EE1FA8 /* SceneDelegate.swift */,
 			);
 			path = Todo;
