@@ -27,7 +27,7 @@ class CompletelistViewController: UIViewController, UITableViewDataSource, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView = UITableView(frame: view.bounds, style: .grouped) // or .plain
+        tableView = UITableView(frame: view.bounds, style: .grouped)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "completedTaskCell")
@@ -38,7 +38,6 @@ class CompletelistViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     @objc func handleCompletedTasksChanged(_ notification: NSNotification) {
-        // fetch the completed tasks data and reload the table view
         if let completedData = UserDefaults.standard.array(forKey: "CompletedTasksData") as? [[String]] {
             completedTasks = completedData
         }

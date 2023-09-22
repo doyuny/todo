@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		071AEA672AB2F58600B67A63 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 071AEA662AB2F58600B67A63 /* SnapKit */; };
+		071AEA6A2AB305FF00B67A63 /* Memo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 071AEA682AB305FF00B67A63 /* Memo.xcdatamodeld */; };
+		071AEA6C2AB4355000B67A63 /* ProfileDesignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071AEA6B2AB4355000B67A63 /* ProfileDesignViewController.swift */; };
 		07B7BBAD2A77FD1700EE1FA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7BBAC2A77FD1700EE1FA8 /* AppDelegate.swift */; };
 		07B7BBAF2A77FD1700EE1FA8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7BBAE2A77FD1700EE1FA8 /* SceneDelegate.swift */; };
 		07B7BBB12A77FD1700EE1FA8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7BBB02A77FD1700EE1FA8 /* ViewController.swift */; };
@@ -22,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		071AEA692AB305FF00B67A63 /* Memo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Memo.xcdatamodel; sourceTree = "<group>"; };
+		071AEA6B2AB4355000B67A63 /* ProfileDesignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDesignViewController.swift; sourceTree = "<group>"; };
 		07B7BBA92A77FD1700EE1FA8 /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07B7BBAC2A77FD1700EE1FA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07B7BBAE2A77FD1700EE1FA8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +48,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07BB9B672A9C241A001F4ADC /* Alamofire in Frameworks */,
+				071AEA672AB2F58600B67A63 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +58,7 @@
 		07B7BBA02A77FD1700EE1FA8 = {
 			isa = PBXGroup;
 			children = (
+				071AEA6B2AB4355000B67A63 /* ProfileDesignViewController.swift */,
 				07B7BBAB2A77FD1700EE1FA8 /* Todo */,
 				07BB9B6C2A9EC549001F4ADC /* Controller */,
 				07BB9B6B2A9EC542001F4ADC /* View */,
@@ -74,6 +81,7 @@
 				07B7BBAC2A77FD1700EE1FA8 /* AppDelegate.swift */,
 				07B7BBBA2A77FD1900EE1FA8 /* Info.plist */,
 				07B7BBAE2A77FD1700EE1FA8 /* SceneDelegate.swift */,
+				071AEA682AB305FF00B67A63 /* Memo.xcdatamodeld */,
 			);
 			path = Todo;
 			sourceTree = "<group>";
@@ -126,6 +134,7 @@
 			name = Todo;
 			packageProductDependencies = (
 				07BB9B662A9C241A001F4ADC /* Alamofire */,
+				071AEA662AB2F58600B67A63 /* SnapKit */,
 			);
 			productName = Todo;
 			productReference = 07B7BBA92A77FD1700EE1FA8 /* Todo.app */;
@@ -157,6 +166,7 @@
 			mainGroup = 07B7BBA02A77FD1700EE1FA8;
 			packageReferences = (
 				07BB9B652A9C241A001F4ADC /* XCRemoteSwiftPackageReference "Alamofire" */,
+				071AEA652AB2F58600B67A63 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 07B7BBAA2A77FD1700EE1FA8 /* Products */;
 			projectDirPath = "";
@@ -189,9 +199,11 @@
 				07FC1E932A81CF28007770B9 /* TodoCellSwitch.swift in Sources */,
 				07FC1E952A81D43F007770B9 /* ClickTodoAction.swift in Sources */,
 				07B7BBB12A77FD1700EE1FA8 /* ViewController.swift in Sources */,
+				071AEA6C2AB4355000B67A63 /* ProfileDesignViewController.swift in Sources */,
 				07B7BBE12A78C4F900EE1FA8 /* Todolist.swift in Sources */,
 				07BB9B692A9C2AA4001F4ADC /* CatDogImage.swift in Sources */,
 				07B7BBAD2A77FD1700EE1FA8 /* AppDelegate.swift in Sources */,
+				071AEA6A2AB305FF00B67A63 /* Memo.xcdatamodeld in Sources */,
 				07B7BBAF2A77FD1700EE1FA8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +426,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		071AEA652AB2F58600B67A63 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		07BB9B652A9C241A001F4ADC /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -425,12 +445,30 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		071AEA662AB2F58600B67A63 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 071AEA652AB2F58600B67A63 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		07BB9B662A9C241A001F4ADC /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 07BB9B652A9C241A001F4ADC /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		071AEA682AB305FF00B67A63 /* Memo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				071AEA692AB305FF00B67A63 /* Memo.xcdatamodel */,
+			);
+			currentVersion = 071AEA692AB305FF00B67A63 /* Memo.xcdatamodel */;
+			path = Memo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 07B7BBA12A77FD1700EE1FA8 /* Project object */;
 }

@@ -31,5 +31,6 @@ class TodoCell: UITableViewCell {
             toggleSwitch.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             toggleSwitch.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
         ])
+        
     }
 }

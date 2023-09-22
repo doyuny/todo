@@ -10,7 +10,7 @@ import UIKit
 class clicktodo: UIViewController, UITableViewDataSource {
     var tableView = UITableView(frame: .zero, style: .insetGrouped)
     let header = ["Section1", "Section2", "Section3"]
-    var data = [["Test 1-1", "Test 1-2"], ["Test 2-1", "Test 2-2"], ["Test 3-1", "Test 3-2"]] // Declare data as a variable
+    var data = [["Test 1-1", "Test 1-2"], ["Test 2-1", "Test 2-2"], ["Test 3-1", "Test 3-2"]]
     
     var readTF = UITextField()
     var selectedSectionIndex = 0
@@ -63,19 +63,19 @@ class clicktodo: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard indexPath.section < data.count else {
-            return UITableViewCell() // Or your fallback cell
+            return UITableViewCell()
         }
 
         guard indexPath.row < data[indexPath.section].count else {
-            return UITableViewCell() // Or your fallback cell
+            return UITableViewCell()
         }
 
         guard indexPath.section < switchStates.count else {
-            return UITableViewCell() // Or your fallback cell
+            return UITableViewCell()
         }
 
         guard indexPath.row < switchStates[indexPath.section].count else {
-            return UITableViewCell() // Or your fallback cell
+            return UITableViewCell() 
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TodoCell
         

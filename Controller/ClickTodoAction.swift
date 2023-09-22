@@ -91,7 +91,6 @@ extension clicktodo {
         switchStates[section][row] = sender.isOn
 
         UserDefaults.standard.set(switchStates, forKey: "SwitchStates")
-
         var onTasks: [[String]] = Array(repeating: [], count: data.count)
 
         for sec in 0..<data.count {
